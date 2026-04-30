@@ -12,8 +12,15 @@ interface JWTpayload{
 export const authentication=(req:userIdDefinition,res:Response,next:NextFunction)=>{
     try{
     
-    const token=req.headers["Authorization"];
+    const authHeader=req.headers.authorization;
 
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+  return res.status(401).json({
+    msg: "Token missing or invalid"
+  });
+}
+
+const token = authHeader.split(" ")[1];
     
     const decoded=jwt.verify(token as string,JWT_SECRET) as JWTpayload;
 
@@ -26,8 +33,8 @@ export const authentication=(req:userIdDefinition,res:Response,next:NextFunction
 
 
     req.userId=decoded.id;
-
     next();
+
     }
     catch(e){
      console.log("Erros",e);

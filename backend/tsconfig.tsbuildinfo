@@ -1,1 +1,1 @@
-{"root":["./src/config.ts","./src/db.ts","./src/index.ts","./src/middlewares/uservalidation.ts","./src/schemas/userloginschema.ts","./src/schemas/usersignupschema.ts"],"version":"6.0.3"}
+{"root":["./src/config.ts","./src/db.ts","./src/index.ts","./src/middlewares/authentication.ts","./src/middlewares/uservalidation.ts","./src/requestdefinitions/useriddefinition.ts","./src/schemas/userloginschema.ts","./src/schemas/usersignupschema.ts"],"version":"6.0.3"}

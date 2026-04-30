@@ -17,9 +17,14 @@ const TodoSchema=new Schema({
 })
 
 
+interface Todo {
+  title: string;
+  description: string;
+  priority: number;
+  userId: mongoose.Types.ObjectId;
+}
 
 
 
-
-export const TodoModel= model("Todo",TodoSchema)
+export const TodoModel= model<Todo>("Todo",TodoSchema)
 export const UserModel= model("User",UserSchema)
